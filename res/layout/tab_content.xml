@@ -5,11 +5,11 @@
     android:layout_height="fill_parent"
     android:orientation="vertical" >
     
-<!--     <com.world.compet.view.MainHeaderActionView
+    <com.moo.view.HeaderActionView
         android:id="@+id/header_view"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="top" />" -->
+        android:layout_gravity="top" />
 
     <FrameLayout
         android:id="@+id/mytabcontent"

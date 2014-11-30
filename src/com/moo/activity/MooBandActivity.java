@@ -4,6 +4,7 @@ import com.moo.R;
 import com.moo.component.BottomTabHost;
 import com.moo.component.BottomTabHost.TabSpec;
 import com.moo.component.TabView;
+import com.moo.view.HeaderActionView;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -29,6 +30,7 @@ public class MooBandActivity extends BottomTabActivity implements BottomTabHost.
 	private BottomTabHost mHost;
 	private TabView[] mTabBtns = new TabView[MAX_TAB_COUNT];
 	private int currIndex = 0;
+	private HeaderActionView mHeaderActionView;
 	
     /** Called when the activity is first created. */
     @Override
@@ -80,7 +82,11 @@ public class MooBandActivity extends BottomTabActivity implements BottomTabHost.
 	}
 
 	public void onTabChanged(String tabId, String preTabId) {
+		if (mHeaderActionView == null) {
+			mHeaderActionView = (HeaderActionView) findViewById(R.id.header_view);
+		}
 		
+		mHeaderActionView.setTitle(mHost.getCurrentTabTitle());
 	}
 
 	public void onTabAction(String tabId, String nextTabId) {
