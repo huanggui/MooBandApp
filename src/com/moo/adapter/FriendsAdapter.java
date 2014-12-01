@@ -53,9 +53,9 @@ public class FriendsAdapter extends BaseAdapter{
 	        convertView = LayoutInflater.from(mContext).inflate(R.layout.item_friends_list, null);  
 	        holder.preImage = (ImageView) convertView.findViewById(R.id.pre_image);  
 	        holder.tvName =(TextView) convertView.findViewById(R.id.tv_name);  
-	        holder.tvTel = (TextView) convertView.findViewById(R.id.tv_telephone);
+	        holder.tvTel = (TextView) convertView.findViewById(R.id.tv_tel);
 	        holder.tvQQ = (TextView) convertView.findViewById(R.id.tv_qq);
-	        holder.tvWeiXin = (TextView) convertView.findViewById(R.id.tv_weixin);
+	        holder.tvWeiXin = (TextView) convertView.findViewById(R.id.tv_wx);
 	        convertView.setTag(holder);
 		}else {
 			holder = (HolderView) convertView.getTag();

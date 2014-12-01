@@ -31,7 +31,7 @@ public class FriendsActivity extends Activity {
 		if (mFriendInfos == null) {
 			mFriendInfos = new ArrayList<FriendInfo>();
 		}
-		for (int i = 0; i < 7; i++) {
+		for (int i = 0; i < 12; i++) {
 			FriendInfo info = new FriendInfo(null, "name" + i, "tel" + i, "qq" + i, "wx" + i);
 			if (info != null) {
 				mFriendInfos.add(info);

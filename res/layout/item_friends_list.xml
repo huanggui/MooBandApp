@@ -9,13 +9,14 @@
         android:layout_height="90dp"
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
-        android:src="@drawable/baricon_app"/>
+        android:src="@drawable/baricon_app" />
 
     <LinearLayout
         android:id="@+id/info_content"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_toRightOf="@id/pre_image"
+        android:layout_marginLeft="5dp"
         android:orientation="vertical" >
 
         <TextView
@@ -24,31 +25,76 @@
             android:layout_height="wrap_content"
             android:singleLine="true"
             android:text="姓名"
-            android:textSize="14dp" />
+            android:textSize="16dp" />
 
-        <TextView
-            android:id="@+id/tv_telephone"
+        <LinearLayout
+            android:id="@+id/tel_content"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:singleLine="true"
-            android:text="电话"
-            android:textSize="14dp" />
+            android:layout_marginTop="2dp"
+            android:orientation="horizontal" >
 
-        <TextView
-            android:id="@+id/tv_qq"
+            <ImageView
+                android:id="@+id/img_tel"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:src="@drawable/baricon_app" />
+
+            <TextView
+                android:id="@+id/tv_tel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:layout_marginLeft="4dp"
+                android:text="电话"
+                android:textSize="14dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/qq_content"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:singleLine="true"
-            android:text="qq"
-            android:textSize="14dp" />
+            android:layout_marginTop="2dp"
+            android:orientation="horizontal" >
 
-        <TextView
-            android:id="@+id/tv_weixin"
+            <ImageView
+                android:id="@+id/img_qq"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:src="@drawable/baricon_app" />
+
+            <TextView
+                android:id="@+id/tv_qq"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:layout_marginLeft="4dp"
+                android:text="qq"
+                android:textSize="14dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/wx_content"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:singleLine="true"
-            android:text="微信"
-            android:textSize="14dp" />
+            android:layout_marginTop="2dp"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:id="@+id/img_wx"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:src="@drawable/baricon_app" />
+
+            <TextView
+                android:id="@+id/tv_wx"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:layout_marginLeft="4dp"
+                android:text="wx"
+                android:textSize="14dp" />
+        </LinearLayout>
     </LinearLayout>
 
 </RelativeLayout>

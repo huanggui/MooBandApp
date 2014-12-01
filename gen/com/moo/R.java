@@ -48,12 +48,15 @@ public final class R {
     }
     public static final class id {
         public static final int btn_right=0x7f070006;
-        public static final int header_view=0x7f07001a;
+        public static final int header_view=0x7f070020;
         public static final int heartbeat=0x7f070007;
-        public static final int icon=0x7f070016;
+        public static final int icon=0x7f07001c;
         public static final int img_heartbeat=0x7f070008;
+        public static final int img_qq=0x7f070016;
         public static final int img_runrecord=0x7f07000d;
+        public static final int img_tel=0x7f070013;
         public static final int img_temperature=0x7f07000b;
+        public static final int img_wx=0x7f070019;
         public static final int info_content=0x7f070010;
         public static final int list_view=0x7f070004;
         /**  首页的tab 
@@ -62,22 +65,25 @@ public final class R {
         public static final int main_tab2=0x7f070001;
         public static final int main_tab3=0x7f070002;
         public static final int main_tab4=0x7f070003;
-        public static final int mytabcontent=0x7f07001b;
-        public static final int mytabhost=0x7f070019;
-        public static final int mytabs=0x7f07001c;
+        public static final int mytabcontent=0x7f070021;
+        public static final int mytabhost=0x7f07001f;
+        public static final int mytabs=0x7f070022;
         public static final int pre_image=0x7f07000f;
-        public static final int tab_item_bg=0x7f070015;
+        public static final int qq_content=0x7f070015;
+        public static final int tab_item_bg=0x7f07001b;
+        public static final int tel_content=0x7f070012;
         public static final int temperature=0x7f07000a;
-        public static final int title=0x7f070017;
-        public static final int toast_number=0x7f070018;
+        public static final int title=0x7f07001d;
+        public static final int toast_number=0x7f07001e;
         public static final int tv_heartbeat=0x7f070009;
         public static final int tv_name=0x7f070011;
-        public static final int tv_qq=0x7f070013;
+        public static final int tv_qq=0x7f070017;
         public static final int tv_runrecord=0x7f07000e;
-        public static final int tv_telephone=0x7f070012;
+        public static final int tv_tel=0x7f070014;
         public static final int tv_temperature=0x7f07000c;
         public static final int tv_title=0x7f070005;
-        public static final int tv_weixin=0x7f070014;
+        public static final int tv_wx=0x7f07001a;
+        public static final int wx_content=0x7f070018;
     }
     public static final class layout {
         public static final int friends_tab_layout=0x7f030000;
