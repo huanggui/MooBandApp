@@ -26,6 +26,7 @@ public class FriendsAdapter extends BaseAdapter{
 			mFriends.addAll(list);
 		}
 	}
+	
 	public int getCount() {
 		if (mFriends == null) {
 			return 0;
@@ -35,7 +36,7 @@ public class FriendsAdapter extends BaseAdapter{
 	}
 
 	public Object getItem(int position) {
-		if (position < 0 || position > mFriends.size()) {
+		if (position < 0 || position >= mFriends.size()) {
 			return null;
 		}else {
 			return mFriends.get(position);
