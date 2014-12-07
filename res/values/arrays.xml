@@ -14,5 +14,19 @@
         <item>体感</item>
         <item>身份</item>
     </string-array>
+    
+    <string-array name="controller_events">
+        <item>轻敲手环来</item>
+        <item>晃动手环来</item>
+    </string-array>
+        <string-array name="controller_beat_titles">
+        <item>打开手电筒</item>
+        <item>关闭屏幕保护锁</item>
+    </string-array>
+    <string-array name="controller_shake_titles">
+        <item>关闭来电时的铃声</item>
+        <item>解开屏幕保护锁</item>
+        <item>直接拍照</item>
+    </string-array>
 
 </resources>

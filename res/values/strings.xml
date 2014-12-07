@@ -4,4 +4,6 @@
     <string name="app_name">MooBand</string>
     
     <string name="defalut_title">标题</string>
+    <string name="switch_open_state">已开启</string>
+    <string name="switch_closed_state">已关闭</string>
 </resources>

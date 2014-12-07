@@ -1,46 +1,48 @@
 package com.moo.adapter;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.moo.R;
 import com.moo.component.SwitchButton;
-import com.moo.model.ControllerItemInfo;
 
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 public class ControllerAdapter extends BaseAdapter{
 
-	private List<ControllerItemInfo> itemInfos = new ArrayList<ControllerItemInfo>();
+	private List<String>  eventList = new ArrayList<String>();
+	private List<String>  itemList = new ArrayList<String>();
 	private Context mContext;
 	
 	
-	public ControllerAdapter(Context context, List<ControllerItemInfo> list) {
+	public ControllerAdapter(Context context, List<String> events, List<String> items) {
 		mContext = context;
-		if (list != null && list.size() > 0) {
-			itemInfos.clear();
-			itemInfos.addAll(list);
-		}
+		eventList = events;
+		itemList = items;
 	}
 
+
 	public int getCount() {
-		if (itemInfos == null) {
+		if (itemList == null) {
 			return 0;
 		}else {
-			return itemInfos.size();
+			return itemList.size();
 		}
 	}
 
 	public Object getItem(int position) {
-		if (position  < 0 || position >= itemInfos.size()) {
+		if (position  < 0 || position >= itemList.size()) {
 			return null;
 		}else {
-			return itemInfos.get(position);
+			return itemList.get(position);
 		}
 	}
 
@@ -48,35 +50,59 @@ public class ControllerAdapter extends BaseAdapter{
 		// TODO Auto-generated method stub
 		return position;
 	}
+	
+    public boolean isEnabled(int position) {  
+        // TODO Auto-generated method stub  
+         if(eventList.contains(getItem(position))){  
+             return false;  
+         }  
+         return super.isEnabled(position);  
+    } 
 
 	public View getView(int position, View convertView, ViewGroup parent) {
-		HolderView holder;
-		if (convertView == null) { 			
-			holder = new HolderView();
-	        convertView = LayoutInflater.from(mContext).inflate(R.layout.item_controller_list, null);  
-	        holder.tvTitle =(TextView) convertView.findViewById(R.id.tv_title);  
-	        holder.tvTip = (TextView) convertView.findViewById(R.id.tv_tip);
-	        holder.switchButton = (SwitchButton) convertView.findViewById(R.id.switchBtn);
-	        convertView.setTag(holder);
+		if(eventList.contains(getItem(position))) {
+			return getGroupView(position, convertView, parent);
 		}else {
-			holder = (HolderView) convertView.getTag();
+			return getItemView(position, convertView, parent);
 		}
+	}
 	
-		ControllerItemInfo itemInfo = (ControllerItemInfo) getItem(position);
-		if (itemInfo == null) {
-			return null;
+	private View getGroupView(int position, View convertView, ViewGroup parent) {
+		HolderGroupView holder;
+		if (convertView == null) {
+			holder = new HolderGroupView();
+			convertView = LayoutInflater.from(mContext).inflate(R.layout.group_controller_list, null); 
+			holder.tvTitle = (TextView) convertView.findViewById(R.id.event_text);
+			convertView.setTag(holder);
+		}else {
+			holder = (HolderGroupView) convertView.getTag();
 		}
-
-		holder.tvTitle.setText(itemInfo.getTitleString());
-		holder.tvTip.setText(itemInfo.getTipString());
-		holder.switchButton.setSwitchState(false);
-		
+		holder.tvTitle.setText((CharSequence) getItem(position));
 		return convertView;
 	}
 	
-	public class HolderView {
+	private View getItemView(int position, View convertView, ViewGroup parent) {
+		HolderItemView holder;
+		if (convertView == null) {
+			holder = new HolderItemView();
+			convertView = LayoutInflater.from(mContext).inflate(R.layout.item_controller_list, null); 
+			holder.tvTitle = (TextView) convertView.findViewById(R.id.tv_title);
+	        holder.switchButton = (SwitchButton) convertView.findViewById(R.id.switchBtn);
+	        holder.switchButton.setTitlesOfSwitch(mContext.getString(R.string.switch_open_state), mContext.getString(R.string.switch_closed_state));
+	        convertView.setTag(holder);
+		}else {
+			holder = (HolderItemView) convertView.getTag();
+		}
+		holder.tvTitle.setText((CharSequence) getItem(position));
+		holder.switchButton.setSwitchState(false);
+		return convertView;
+	}
+	
+	public class HolderGroupView {
 		TextView tvTitle;
-		TextView tvTip;
+	}
+	public class HolderItemView {
+		TextView tvTitle;
 		SwitchButton switchButton;
 	}
 
