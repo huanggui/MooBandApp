@@ -1,15 +1,18 @@
 package com.moo.activity;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
 import com.moo.R;
 import com.moo.adapter.ControllerAdapter;
+import com.moo.utils.DataSetUtils;
+import com.moo.utils.DoHardwareUtils;
 
 import android.app.Activity;
+import android.hardware.Camera;
 import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.ListView;
 
 public class ControllerActivity extends Activity {
@@ -18,6 +21,10 @@ public class ControllerActivity extends Activity {
 	private List<String> mControllerEvents;
 	private List<String> mControllerInfos;
 	private ListView mListView;
+	
+	private Button beatBtn;
+	private Button shakeBtn;
+	private Camera camera;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +64,31 @@ public class ControllerActivity extends Activity {
 		mListView = (ListView) findViewById(R.id.list_view);
 		mAdapter = new ControllerAdapter(this, mControllerEvents, mControllerInfos);
 		mListView.setAdapter(mAdapter);
+		beatBtn = (Button) findViewById(R.id.beatBtn);
+		beatBtn.setOnClickListener(new OnClickListener() {
+			
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				if(camera == null) {
+					camera = DoHardwareUtils.getCameraInstance();
+				}
+				if (DataSetUtils.getData(DataSetUtils.OPEN_LIGHT_EVENT)) {
+					DoHardwareUtils.openCameraLight(camera);
+				}
+			}
+		});
+		
+		shakeBtn = (Button) findViewById(R.id.shakeBtn);
+		shakeBtn.setOnClickListener(new OnClickListener() {
+			
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				if (camera == null) {
+					return ;
+				}
+				DoHardwareUtils.closeCameraLight(camera);
+			}
+		});
 	}
 	
 }
